@@ -1,0 +1,9 @@
+# jemdoc:menu{MENU}{notes.html}, nofooter
+= Miscellaneous Notes
+{{<script>document.title = "Kisung::Notes"</script>}}
+
+These are some notes for /mainly/ personal usage.
+
+== Image Processing
+
+- Derivation of Euler-Lagrange equation for ROF denoising algorithm \[[pdf/note01ROF.pdf PDF]\].
