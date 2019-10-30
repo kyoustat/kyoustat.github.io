@@ -5,37 +5,15 @@
 I maintain and develop following packages in [https://www.r-project.org/ R]. Most of these are designed for computational efficiency \n
 using [http://www.rcpp.org/ Rcpp] and its extensions, yet not fully optimized with decent performance on local machines. 
 
-
-- [https://cran.r-project.org/package=ADMM *ADMM*]\n
-Algorithms using Alternating Direction Method of Multipliers
-- [https://CRAN.R-project.org/package=CovTools *carfima*]\n
-Continuous-Time Fractionally Integrated ARMA Process for Irregularly Spaced Long-Memory Time Series Data
-- [https://CRAN.R-project.org/package=CovTools *CovTools*]\n
-Geometrical and Statistical Tools for Covariance Analysis
-- [https://CRAN.R-project.org/package=filling *filling*] \n
-Matrix Completion, Imputation, and Inpainting Methods
-- [https://cran.r-project.org/package=graphon *graphon*]\n
-A collection of [https://en.wikipedia.org/wiki/Graphon /graphon/] estimation methods
-- [https://cran.r-project.org/package=mclustcomp *mclustcomp*]\n
-Measures for /comparing/ partitions(=clusterings) of sets
-- [https://cran.r-project.org/package=NetworkDistance *NetworkDistance*]\n
-Distance Measures for Networks
-- [https://CRAN.R-project.org/package=Rdimtools *Rdimtools*]\n
-Dimension reduction and estimation methods 
+== Geometry and Topology
 - [https://CRAN.R-project.org/package=RiemBase *RiemBase*]\n
 Functions and C++ Header Files for Computation on Manifolds
-- [https://CRAN.R-project.org/package=Rlinsolve *Rlinsolve*]\n
-Fast and Efficient Iterative solvers for (sparse) linear system of equations
-- [https://cran.r-project.org/package=ROptSpace *ROptSpace*]\n
-/Matrix Completion/ from a partially observed matrix
+
+== Optimization
+- [https://CRAN.R-project.org/package=maotai *maotai*]\n
+Tools for Matrix Algebra, Optimization and Inference
 - [https://CRAN.R-project.org/package=tvR *tvR*]\n
 Total Variation Regularization for Signals and Images
-- [https://CRAN.R-project.org/package=SAMCpack *SAMCpack*]\n
-Stochastic Approximation Monte Carlo Sampler and Methods
-- [https://CRAN.R-project.org/package=Zseq *Zseq*]\n
-Integer Sequence Generator
-
-
 
 
 
