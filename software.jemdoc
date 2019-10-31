@@ -9,9 +9,11 @@ using [http://www.rcpp.org/ Rcpp] and its extensions, yet not fully optimized wi
 - [https://CRAN.R-project.org/package=RiemBase *RiemBase*]\n
 Functions and C++ Header Files for Computation on Manifolds
 
-== Optimization
+== Statistical Inference
 - [https://CRAN.R-project.org/package=maotai *maotai*]\n
 Tools for Matrix Algebra, Optimization and Inference
+
+== Optimization
 - [https://CRAN.R-project.org/package=tvR *tvR*]\n
 Total Variation Regularization for Signals and Images
 

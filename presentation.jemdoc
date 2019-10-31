@@ -1,0 +1,19 @@
+# jemdoc:menu{MENU}{presentation.html}, nofooter
+= Presentation
+{{<script>document.title = "Kisung::Presentation"</script>}}
+
+== Poster
+- [presentation/2016_NetSci_MNET.pdf *MNET 2.0: Big Graphical Mining of Multimodal Brain Networks*] \n
+/International School and Conference on Network Science (NetSci 2016), Seoul, South Korea/\n
+with J. Ur, C. Pae, J. Choi, and H-J. Park 
+
+- [presentation/2016_NetSci_DeepLearning.pdf *Reusability of deep neural network for human functional networks*]\n
+/International School and Conference on Network Science (NetSci 2016), Seoul, South Korea/\n
+with H. Kim, C. Pae, and H-J. Park
+
+- [presentation/2016_NetSci_LAMP.pdf *Low-dimensional representation of human brain networks with modularity-based proximity of large-scale functional graphs*]\n
+/International School and Conference on Network Science (NetSci 2016), Seoul, South Korea/\n
+with C. Pae and H-J. Park
+
+- *Convergence of Empirical Intensity CDF and Texture Classification*\n
+/KSIAM 2015 Spring Conference, Suwon, South Korea/
