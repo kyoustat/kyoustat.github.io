@@ -2,14 +2,20 @@
 = Miscellaneous Notes
 {{<script>document.title = "Kisung::Notes"</script>}}
 
-These are some notes for /mainly/ personal usage.
+~~~
+{}
+These are some notes for /mainly/ personal usage. Read at your own risk, even though I try hard to make these notes as clear as possible without omitting basic yet crucial details. If you find errors, please share it with me.
+~~~
 
 == Image Processing
 
 - Derivation of Euler-Lagrange equation for ROF denoising algorithm \[[pdf/note01ROF.pdf PDF]\].
 
 
-== Miscellaneous for Undergraduates
+== Elementary : Applied Mathematics
 
 - Rodrigues' formula for the Legendre polynomials \[[pdf/note03rodrigues.pdf PDF]\].
 
+== Elementary : Statistics
+
+- $L_2$ distance between two Gaussian Mixture Models
