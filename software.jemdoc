@@ -9,7 +9,14 @@ using [http://www.rcpp.org/ Rcpp] and its extensions, yet not fully optimized wi
 - [https://CRAN.R-project.org/package=RiemBase *RiemBase*]\n
 Functions and C++ Header Files for Computation on Manifolds
 
+== Network
+- [https://CRAN.R-project.org/package=graphon *graphon*]\n
+A Collection of Graphon Estimation Methods
+
 == Statistical Inference
+- [https://CRAN.R-project.org/package=CovTools *CovTools*]\n
+Statistical Tools for Covariance Analysis
+
 - [https://CRAN.R-project.org/package=maotai *maotai*]\n
 Tools for Matrix Algebra, Optimization and Inference
 
