@@ -14,6 +14,8 @@ Functions and C++ Header Files for Computation on Manifolds
 == Network
 - [https://CRAN.R-project.org/package=graphon *graphon*]\n
 A Collection of Graphon Estimation Methods
+- [https://CRAN.R-project.org/package=NetworkDistance *NetworkDistance*]\n
+Distance Measures for Networks
 
 == Statistical Inference
 - [https://CRAN.R-project.org/package=CovTools *CovTools*]\n
