@@ -1,7 +1,11 @@
-MENU
-    Main                [index.html]
-	Research            [research.html]
+WELCOME
+	About               [index.html]
+
+RESEARCH
+	Publication  	    [publication.html]
 	Presentation        [presentation.html]
 	Software            [software.html]
+
+EXTRA
 	Notes               [notes.html]
 
