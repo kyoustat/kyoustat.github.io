@@ -21,8 +21,14 @@ Distance Measures for Networks
 - [https://CRAN.R-project.org/package=CovTools *CovTools*]\n
 Statistical Tools for Covariance Analysis
 
+- [https://CRAN.R-project.org/package=filling *filling*]\n
+Matrix Completion, Imputation, and Inpainting Methods
+
 - [https://CRAN.R-project.org/package=maotai *maotai*]\n
 Tools for Matrix Algebra, Optimization and Inference
+
+- [https://CRAN.R-project.org/package=SHT *SHT*]\n
+Statistical Hypothesis Testing Toolbox
 
 == Optimization
 - [https://CRAN.R-project.org/package=tvR *tvR*]\n
