@@ -27,10 +27,18 @@ Matrix Completion, Imputation, and Inpainting Methods
 - [https://CRAN.R-project.org/package=maotai *maotai*]\n
 Tools for Matrix Algebra, Optimization and Inference
 
+- [https://CRAN.R-project.org/package=Rdimtools *Rdimtools*]\n
+Dimension Reduction and Estimation Methods
+
 - [https://CRAN.R-project.org/package=SHT *SHT*]\n
 Statistical Hypothesis Testing Toolbox
 
+
+
 == Optimization
+- [https://CRAN.R-project.org/package=ROptSpace *ROptSpace*]\n
+Matrix Reconstruction from a Few Entries
+
 - [https://CRAN.R-project.org/package=tvR *tvR*]\n
 Total Variation Regularization for Signals and Images
 
