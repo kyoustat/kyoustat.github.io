@@ -30,6 +30,9 @@ Tools for Matrix Algebra, Optimization and Inference
 - [https://CRAN.R-project.org/package=Rdimtools *Rdimtools*]\n
 Dimension Reduction and Estimation Methods
 
+- [https://CRAN.R-project.org/package=SBmedian *SBmedian*]\n
+Scalable Bayes with Median of Subset Posteriors
+
 - [https://CRAN.R-project.org/package=SHT *SHT*]\n
 Statistical Hypothesis Testing Toolbox
 
