@@ -8,8 +8,12 @@ using [http://www.rcpp.org/ Rcpp] and its extensions, yet not fully optimized wi
 == Geometry and Topology
 - [https://CRAN.R-project.org/package=RiemBase *RiemBase*]\n
 Functions and C++ Header Files for Computation on Manifolds
+
 - [https://CRAN.R-project.org/package=RiemBaseExt *RiemBaseExt*]\n
- Extension to 'RiemBase' Package
+Extension to 'RiemBase' Package
+
+- [https://CRAN.R-project.org/package=RiemStiefel *RiemStiefel*]\n
+Tools for Inference, Learning, and Optimization on Stiefel Manifold
 
 == Network
 - [https://CRAN.R-project.org/package=graphon *graphon*]\n
