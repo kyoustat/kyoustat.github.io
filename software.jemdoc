@@ -12,8 +12,11 @@ Functions and C++ Header Files for Computation on Manifolds
 - [https://CRAN.R-project.org/package=RiemBaseExt *RiemBaseExt*]\n
 Extension to 'RiemBase' Package
 
+- [https://CRAN.R-project.org/package=RiemGrassmann *RiemGrassmann*]\n
+Inference, Learning, and Optimization on RiemGrassmann Manifold
+
 - [https://CRAN.R-project.org/package=RiemStiefel *RiemStiefel*]\n
-Tools for Inference, Learning, and Optimization on Stiefel Manifold
+Inference, Learning, and Optimization on Stiefel Manifold
 
 == Network
 - [https://CRAN.R-project.org/package=graphon *graphon*]\n
