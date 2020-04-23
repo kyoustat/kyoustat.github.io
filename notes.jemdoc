@@ -9,13 +9,17 @@ These are some notes for /mainly/ personal usage. Read at your own risk, even th
 
 == Image Processing
 
-- Derivation of Euler-Lagrange equation for ROF denoising algorithm \[[pdf/note01ROF.pdf PDF]\].
+- Derivation of Euler-Lagrange equation for ROF denoising algorithm \[[pdf/note001ROF.pdf PDF]\].
 
 
-== Elementary : Applied Mathematics
+== Elementary : Calculus
 
-- Rodrigues' formula for the Legendre polynomials \[[pdf/note03rodrigues.pdf PDF]\].
+- Rodrigues' formula for the Legendre polynomials \[[pdf/note003rodrigues.pdf PDF]\].
 
 == Elementary : Statistics
 
-- $L_2$ distance between two Gaussian Mixture Models \[[pdf/note04gmml2.pdf PDF]\].
+- $L_2$ distance between two Gaussian Mixture Models \[[pdf/note004gmml2.pdf PDF]\].
+
+== Elementary : Computational
+
+- Monte Carlo computation of $L_p$ distance for densities on hypersphere \[[pdf/note002MCvMF.pdf PDF]\]
