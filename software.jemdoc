@@ -2,21 +2,23 @@
 = A list of packages developed
 {{<script>document.title = "Kisung::Software"</script>}}
 
-I maintain and develop following packages in [https://www.r-project.org/ R]. Most of these are designed for computational efficiency \n
-using [http://www.rcpp.org/ Rcpp] and its extensions, yet not fully optimized with decent performance on local machines. 
+I develop several packages in [https://www.r-project.org/ R]. Packages with additional links in +highlight+ have their own dedicated websites.
 
 == Geometry and Topology
 - [https://CRAN.R-project.org/package=RiemBase *RiemBase*]\n
 Functions and C++ Header Files for Computation on Manifolds
 
-- [https://CRAN.R-project.org/package=Riemann *Riemann*]\n
+- [https://CRAN.R-project.org/package=Riemann *Riemann*] ([https://kyoustat.com/Riemann/ +website+])\n
 Learning with Data on Riemannian Manifolds
+
 
 == Network
 - [https://CRAN.R-project.org/package=graphon *graphon*]\n
 A Collection of Graphon Estimation Methods
+
 - [https://CRAN.R-project.org/package=NetworkDistance *NetworkDistance*]\n
 Distance Measures for Networks
+
 
 == Statistical Inference
 - [https://CRAN.R-project.org/package=CovTools *CovTools*]\n
@@ -25,7 +27,7 @@ Statistical Tools for Covariance Analysis
 - [https://CRAN.R-project.org/package=filling *filling*]\n
 Matrix Completion, Imputation, and Inpainting Methods
 
-- [https://CRAN.R-project.org/package=Rdimtools *Rdimtools*]\n
+- [https://CRAN.R-project.org/package=Rdimtools *Rdimtools*] ([https://kyoustat.com/Rdimtools/ +website+])\n
 Dimension Reduction and Estimation Methods
 
 - [https://CRAN.R-project.org/package=SBmedian *SBmedian*]\n
@@ -34,7 +36,7 @@ Scalable Bayes with Median of Subset Posteriors
 - [https://CRAN.R-project.org/package=SHT *SHT*]\n
 Statistical Hypothesis Testing Toolbox
 
-- [https://CRAN.R-project.org/package=T4cluster *T4cluster*]\n
+- [https://CRAN.R-project.org/package=T4cluster *T4cluster*] ([https://kyoustat.com/T4cluster/ +website+])\n
 Tools for Cluster Analysis
 
 == Optimization
