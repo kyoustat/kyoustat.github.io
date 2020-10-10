@@ -39,7 +39,7 @@ Statistical Hypothesis Testing Toolbox
 - [https://CRAN.R-project.org/package=T4cluster *T4cluster*] ([https://kyoustat.com/T4cluster/ +website+])\n
 Tools for Cluster Analysis
 
-== Optimization
+== Optimization and Applied Mathematics
 - [https://CRAN.R-project.org/package=ROptSpace *ROptSpace*]\n
 Matrix Reconstruction from a Few Entries
 
@@ -51,3 +51,6 @@ Iterative Solvers for (Sparse) Linear System of Equations
 
 - [https://CRAN.R-project.org/package=maotai *maotai*]\n
 Tools for Matrix Algebra, Optimization and Inference
+
+- [https://CRAN.R-project.org/package=T4transport *T4transport*] ([https://kyoustat.com/T4transport/ +website+])\n
+Tools for Computational Optimal Transport
