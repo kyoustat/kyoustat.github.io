@@ -7,6 +7,10 @@
 These are some notes for /mainly/ personal usage. Read at your own risk, even though I try hard to make these notes as clear as possible without omitting basic yet crucial details. If you find errors, please share it with me.
 ~~~
 
+== Geometry and Statistics
+
+- A Note on Angular Central Gaussian Distribution and its Matrix Variant \[[pdf/note005acg.pdf PDF]|[pdf/bib005acg.bib bib]\].
+
 == Image Processing
 
 - Derivation of Euler-Lagrange equation for ROF denoising algorithm \[[pdf/note001ROF.pdf PDF]\].
