@@ -13,7 +13,7 @@ These are some notes for /mainly/ personal usage. Read at your own risk, even th
 
 == Image Processing
 
-- Derivation of Euler-Lagrange equation for ROF denoising algorithm \[[pdf/note001ROF.pdf PDF]\].
+- Derivation of Euler-Lagrange equation for ROF denoising algorithm \[[pdf/note001ROF.pdf PDF]|[pdf/bib001ROF.bib bib]\].
 
 
 == Elementary : Calculus
@@ -26,4 +26,4 @@ These are some notes for /mainly/ personal usage. Read at your own risk, even th
 
 == Elementary : Computational
 
-- Monte Carlo computation of $L_p$ distance between densities on hypersphere \[[pdf/note002MCvMF.pdf PDF]\]
+- Monte Carlo computation of $L_p$ distance between densities on hypersphere \[[pdf/note002MCvMF.pdf PDF]|[pdf/bib002MCvMF.bib bib]\]
