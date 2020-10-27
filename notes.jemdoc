@@ -9,21 +9,21 @@ These are some notes for /mainly/ personal usage. Read at your own risk, even th
 
 == Geometry and Statistics
 
-- A Note on Angular Central Gaussian Distribution and its Matrix Variant \[[pdf/note005acg.pdf PDF]|[pdf/bib005acg.bib bib]\].
+- \[[pdf/note005acg.pdf PDF]|[pdf/bib005acg.bib bib]\] A Note on Angular Central Gaussian Distribution and its Matrix Variant.
 
 == Image Processing
 
-- Derivation of Euler-Lagrange equation for ROF denoising algorithm \[[pdf/note001ROF.pdf PDF]|[pdf/bib001ROF.bib bib]\].
+- \[[pdf/note001ROF.pdf PDF]|[pdf/bib001ROF.bib bib]\] Derivation of Euler-Lagrange equation for ROF denoising algorithm.
 
 
 == Elementary : Calculus
 
-- Rodrigues' formula for the Legendre polynomials \[[pdf/note003rodrigues.pdf PDF]|[pdf/bib003rodrigues.bib bib]\].
+- \[[pdf/note003rodrigues.pdf PDF]|[pdf/bib003rodrigues.bib bib]\] Rodrigues' formula for the Legendre polynomials.
 
 == Elementary : Statistics
 
-- $L_2$ distance between two Gaussian Mixture Models \[[pdf/note004gmml2.pdf PDF]|[pdf/bib004gmml2.bib bib]\].
+- \[[pdf/note004gmml2.pdf PDF]|[pdf/bib004gmml2.bib bib]\] $L_2$ distance between two Gaussian Mixture Models.
 
 == Elementary : Computational
 
-- Monte Carlo computation of $L_p$ distance between densities on hypersphere \[[pdf/note002MCvMF.pdf PDF]|[pdf/bib002MCvMF.bib bib]\]
+- \[[pdf/note002MCvMF.pdf PDF]|[pdf/bib002MCvMF.bib bib]\] Monte Carlo computation of $L_p$ distance between densities on hypersphere.
