@@ -11,6 +11,8 @@ Functions and C++ Header Files for Computation on Manifolds
 - [https://CRAN.R-project.org/package=Riemann *Riemann*] ([https://kyoustat.com/Riemann/ +website+])\n
 Learning with Data on Riemannian Manifolds
 
+- [https://CRAN.R-project.org/package=TDAkit *TDAkit*]\n
+Toolkit for Topological Data Analysis
 
 == Network
 - [https://CRAN.R-project.org/package=graphon *graphon*]\n
