@@ -1,0 +1,9 @@
+# jemdoc: menu{MENU}{CV.html}
+= [https://kyoustat.github.io/ Kisung You]
+{{<script>document.title = "Kisung You"</script>}}
+
+~~~
+{}{raw}
+<iframe src="CV/mine/kyou_cv.pdf" width="1290" height="900" frameborder="0" style="border:0;" ></iframe>
+
+~~~
