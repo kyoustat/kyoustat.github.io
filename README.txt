@@ -7,9 +7,3 @@ JEMDOC : Original : http://jemdoc.jaboc.net/
 (2) Some Examples
 	- https://github.com/jucheng1992/jucheng1992.github.io
 	
-(3) Now controlled via git 
-###################################
-# UPDATE
-1. git add -A
-2. git commit
-3. git push origin master
