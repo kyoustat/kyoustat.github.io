@@ -1,0 +1,138 @@
+\documentclass[fontsize=12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+
+\setlength{\parindent}{3em}
+%\setlength{\parskip}{1em}
+\renewcommand{\baselinestretch}{1.5}
+
+% AMS Math
+
+\usepackage[a4paper, total={7in, 9in}]{geometry}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{natbib}
+\usepackage{graphicx}
+\usepackage{url}
+\usepackage{hyperref}
+\usepackage{xcolor}
+\usepackage{varwidth}
+\usepackage{mdframed}
+
+
+
+\title{Derivation of Euler-Lagrange Equation \\for ROF denoising algorithm}
+\author{
+	Kisung You\\
+	\texttt{kisungyou@outlook.com}
+}
+
+\date{\today}
+
+
+
+\begin{document}
+
+\maketitle
+
+\section{Rudin-Osher-Fatemi TV-L2 Denoising Model}
+Since {this article} is not meant for comprehensive introduction to the problem, I will not thoroughly review theoretic cues. Depending on which viewpoint one takes upon the problem, a common framework of energy formulation on desirable denoised image $u$ given a noisy picture  $u_0$ is 
+\begin{equation}
+\mathrm{E}[u|u_0] = \lambda \| u - u_0 \|_2^2 + \| \nabla u \|_1
+\end{equation}
+where the first term measures closeness of desirable solution to the noisy picture and the second is smoothness penalty - also known as regularization - that penalizes non-smoothness on pursued solution. $\lambda$, which originates from Lagrange multiplier, plays a \emph{balancing} role between noise model and image's smoothness requirement. In this formulation, large $\lambda$ value weighs closeness and small one focuses on smoothing effect. First-order condition for a minimizer $u^*$ is that its \textit{derivative} $\nabla \mathrm{E} = 0$ and this G\^{a}teaux derivative is achieved via Euler-Lagrange equation. A classical solution is to proceed with time-marching method,
+\begin{equation}
+u_t = - \nabla E[u|u_0]
+\end{equation}
+to reach at minimum energy level. For reference, see Rudin, Osher, Fatemi (1992) "\textit{Nonlinear total variation based image removal algorithm}" \cite{rudin_nonlinear_1992}.
+
+
+\section{Basic Calculus}
+First we need is \emph{divergence theorem}. Suppose $\Omega$ is a compact subset of $\mathbb{R}^n$ with a piecewise smooth boundary denoted by $\partial \Omega$. If $\mathbf{F}$ is a continuously differentiable vector field which is defined on $\Omega$, we have
+\begin{equation}
+\int_{\Omega} (\nabla \cdot \mathbf{F}) dV = \int_{\partial \Omega} (\mathbf{F}\cdot \mathbf{n}) dS,
+\end{equation}
+where left part is volume integral over $\Omega$ which expresses, in some sense, change within the entire volume and right side is surface integral over the boundary $\partial \Omega$ of $\Omega$, which somehow measures outwards flux on its surface. 
+
+
+In addition, we need following equality
+\begin{equation}
+\int_{\Omega} \nabla \cdot (u \nabla v) = 
+\int_{\Omega} \nabla u \cdot \nabla v
++ \int_{\Omega} u \nabla \cdot (\nabla v)
+= \int_{\Omega} \nabla u \cdot \nabla v
++ \int_{\Omega} u (\nabla^2 v).
+\end{equation}
+
+
+
+
+\section{Derivation of Euler-Lagrange equation}
+
+A standard Euler-Lagrange equation pertains to the concept of directional derivative in that we can achieve in via following
+\begin{equation}
+0 = \nabla \mathrm{E}= \frac{d}{dt} \Big\vert_{t = 0} \mathrm{E}[u+tv]
+\end{equation}
+and calculation is as follows.
+
+\begin{align*}
+\frac{d}{dt} \mathrm{E}[u+tv]
+&= \frac{d}{dt} \left( \lambda \int_{\Omega} (u + tv - u_0)^2 + \int_{\Omega} | \nabla (u+tv) | \right)\\
+&= \lambda \frac{d}{dt} \left( \int_{\Omega} u^2 + t^2 v^2 + u_0^2 + 2tuv - 2tu_0 v -2uu_0 \right) \\&\quad  + \frac{d}{dt} \left( \int_{\Omega} | \nabla ( u + tv ) | \right)\\
+&= \lambda \int_{\Omega} (2tv^2 + 2uv - 2u_0 v )+ \frac{d}{dt}\left( \int_{\Omega} | \nabla ( u + tv) | \right).
+\end{align*}
+For the second term above, using chain rule, we have
+\begin{align*}
+\frac{d}{dt} \left( \int_{\Omega} | \nabla ( u + tv) | \right)
+&= \int_{\Omega} \frac{\nabla ( u + tv)}{|\nabla ( u + tv)|} \cdot \nabla v
+\end{align*}
+since
+\begin{equation*}
+\frac{d}{dx} |x| = \frac{x}{|x|} = sgn(x) = 
+\begin{cases}
+1 \quad \text{ if } ~& x > 0 \\
+-1  & x < 0\\
+(-1,1) & \text{otherwise}.
+\end{cases}
+\end{equation*}
+Combining these two and inserting $t = 0$, we have
+\begin{equation}
+0 = \nabla \mathrm{E} = 2\lambda \int_{\Omega} \left( (u - u_0) v \right) +  \int_{\Omega} \left(\frac{\nabla u}{|\nabla u|} \cdot \nabla v \right)
+\end{equation}
+and we need to further apply basic calculus results from the above in that
+\begin{align*}
+\int_{\Omega} \left(\frac{\nabla u}{|\nabla u|} \cdot \nabla v \right)
+&= - \int_{\Omega} \left( \nabla \cdot \frac{\nabla u}{|\nabla u|} \right) v
++ \int_{\Omega} \nabla \cdot v \frac{\nabla u}{|\nabla u|}\\
+&= - \int_{\Omega} \mathrm{div} \left( \frac{\nabla u}{|\nabla u|} \right)v
++ \int_{\Omega} \mathrm{div} \left( v \frac{\nabla u}{|\nabla u|}\right) \\
+&= - \int_{\Omega} \mathrm{div} \left( \frac{\nabla u}{|\nabla u|} \right)v
++ \int_{\partial \Omega} \frac{v}{|\nabla u|} \left( \nabla u \cdot n \right).
+\end{align*}
+Therefore, if we set $\nabla u \cdot n = 0$, we have
+\begin{equation}
+0 = \int_{\Omega} \left(\left(2\lambda(u-u_0) \right) - \mathrm{div}\left( \frac{\nabla u}{|\nabla u|}\right)\right)v
+\end{equation}
+and since it should be satisfied with arbitrary direction $v$, we finally have
+\begin{equation}
+\begin{cases}
+(u-u_0) - \frac{1}{2\lambda} \mathrm{div} \left( \frac{\nabla u}{|\nabla u|} \right)=0\quad& \text{ in } \Omega\\
+\frac{\partial u}{\partial n} = 0 & \text{ on } \partial \Omega.
+\end{cases}
+\end{equation}
+
+Then, time-marching methods can be written as following differential equation with Neumann boundary condition,
+\begin{equation*}
+\begin{cases}
+\frac{\partial u}{\partial t} = (u_0 - u) + \frac{1}{2\lambda} \mathrm{div} \left( \frac{\nabla u}{|\nabla u|} \right)\quad& \text{ in } \Omega\\
+\frac{\partial u}{\partial n} = 0 & \text{ on } \partial \Omega.
+\end{cases}
+\end{equation*}
+
+
+
+\bibliographystyle{plain}
+\bibliography{references}
+\end{document}
+

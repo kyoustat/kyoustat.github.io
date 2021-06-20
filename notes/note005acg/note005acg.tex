@@ -1,0 +1,170 @@
+\documentclass[fontsize=12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+
+\setlength{\parindent}{3em}
+%\setlength{\parskip}{1em}
+\renewcommand{\baselinestretch}{1.5}
+
+% AMS Math
+
+\usepackage[a4paper, total={7in, 9in}]{geometry}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{natbib}
+\usepackage{graphicx}
+\usepackage{url}
+\usepackage{hyperref}
+\usepackage{xcolor}
+\usepackage{varwidth}
+\usepackage{mdframed}
+% custom enumeration 
+% https://tex.stackexchange.com/questions/37740/enumerate-with-properties
+\usepackage{enumitem} 
+\newlist{Properties}{enumerate}{2} 
+\setlist[Properties]{label=\textbf{{Property \arabic*.}} ,itemindent=*}
+
+
+\newcommand{\calM}{\mathcal{M}}
+
+\title{A Note on Angular Central Gaussian Distribution and its Matrix Variant}
+\author{
+	Kisung You\\
+	\texttt{kisungyou@outlook.com}
+}
+
+\date{\today}
+
+
+
+\begin{document}
+
+\maketitle
+
+
+% -------------------------------------------------------
+\section{Introduction}
+Probability distributions with explicit forms of densities are 
+core elements of statistical inference. In this note, we review 
+Angular Central Gaussian (ACG) distribution on a hypersphere $\mathbb{S}^{p-1} \subset \mathbb{R}^{p}$ and its extension - Matrix Angular Central Gaussian (MACG) - defined on 
+Stiefel $St(p,r)$ and Grassmann $Gr(p,r)$ manifolds.
+
+
+% -------------------------------------------------------
+\section{Angular Central Gaussian Distribution}
+
+ACG distribution $ACG_p (A)$ has a density 
+\begin{equation*}
+	f_{ACG}(x\vert A) = |A|^{-1/2} (x^\top A^{-1} x)^{-p/2},~\text{ for } x \in \mathbb{S}^{p-1}
+\end{equation*}
+where $A$ is a symmetric positive-definite matrix - $A=A^\top, A\in \mathbb{R}^{p\times p}, \lambda_{\text{min}}(A) > 0$ and $|\cdot|$ denotes a matrix determinant. Let's recap some properties of ACG distribution.
+
+\begin{Properties}
+	\item $f_{ACG}(x\vert A) = f_{ACG}(-x\vert A)$. \\
+	This enables ACG as a distribution on the real projective space $\mathbb{R}P^{p-1} = \mathbb{S}^{p-1}/\lbrace +1, -1 \rbrace$.
+	\item $f_{ACG}(x\vert A) = f_{ACG}(x\vert cA),~c > 0$. \\
+	Common convention is to \textit{normalize} the matrix $A$ by a constraint $\text{tr}(A) = p$, which is useful (or essential) in maximum likelihood estimation of the parameter to ensure algorithmic stability. If you want to show this property, simply use the fact that $|cA| = c^p |A|$. 
+	\item When $x \sim \mathcal{N}_p (0, A) \rightarrow x/\|x\| \sim ACG_p (A)$.\\
+	This property is indeed an intuition behind its origination from \cite{tyler_statistical_1987} and can be used for sampling. 
+\end{Properties}
+
+\noindent\textbf{Maximum Likelihood Estimation}
+
+Given random samples $x_1,x_2,\ldots,x_p \sim ACG_p(A)$, Tyler (1987) proposed an iterative updating scheme to estimate the parameter $A$ by
+\begin{mdframed}
+\begin{equation}\label{eq:mle_sphere_tyler}
+	\hat{A}_{k+1} = p \left\lbrace
+	\sum_{i=1}^{n} \frac{1}{x_i^\top \hat{A}_{k}^{-1} x_i}
+	\right\rbrace^{-1} \sum_{i=1}^n \frac{x_i x_i^\top}{x_i^\top \hat{A}_{k}^{-1} x_i}
+\end{equation}
+\end{mdframed}
+where $\hat{A}_k$ is a $k$-th iterate of an estimator with an initial point $\hat{A}_0 = I_{p}$ is set as an identity matrix. While the formula \eqref{eq:mle_sphere_tyler} guarantees the convergence under mild conditions and abides by the constraint $\text{tr}(\hat{A}_k) = p$, it is from the author's previous work on $M$-estimation of the scatter matrix. Here, we provide a naive derivation of 2-step fixed-point iteration algorithm for pedagogical purpose. 
+
+\begin{mdframed}
+	\begin{equation}\label{eq:mle_sphere_naive}
+		\hat{A}_{k'} = \frac{p}{n} \sum_{i=1}^n \frac{x_i x_i^\top}{x_i^\top \hat{A}_{k}^{-1} x_i} \quad \text{and}\quad \hat{A}_{k+1} =  \frac{p}{\text{tr}(\hat{A}_{k'})} \hat{A}_{k'}
+	\end{equation}
+\end{mdframed}
+
+\noindent First, let's write the log-likelihood
+\begin{equation*}
+	\log L = \log \left(\prod_{i=1}^{n} f(x_i\vert A)\right) = -\frac{n}{2} \log\det(A) - \frac{p}{2} \sum_{i=1}^n \log (x_i^\top \hat{A}_{k}^{-1} x_i)
+\end{equation*}
+and recall two facts from matrix calculus \cite{cookbook} that
+\begin{gather*}
+	\frac{\partial \log\det(A)}{\partial A} = A^{-1} \quad \text{and} \quad \frac{\partial x^\top A^{-1} x}{\partial A} = -A^{-1} xx^\top A^{-1}.
+\end{gather*}
+Then, the first-order condition for the log-likelihood can be written as
+\begin{gather*}
+	\frac{\partial \log L}{\partial A} = -\frac{n}{2} A^{-1} + \frac{p}{2} \sum_{i=1}^n \frac{A^{-1} x_i x_i^\top A^{-1}}{x_i^\top A^{-1} x_i} \\
+	A^{-1} = \frac{p}{n} \sum_{i=1}^n \frac{A^{-1} x_i x_i^\top A^{-1}}{x_i^\top A^{-1} x_i} \\
+	A = \frac{p}{n} \sum_{i=1}^n \frac{ x_i x_i^\top }{x_i^\top A^{-1} x_i}
+\end{gather*}
+where the last equality comes from multiplying $A$ from left and right. Therefore, $\hat{A}$ is a solution of the matrix equation in a form $X = f(X)$ where $f$ is a contraction mapping under some conditions \cite{tyler_statistical_1987}. This leads to the formula \eqref{eq:mle_sphere_naive} while projection step is added to keep $\text{tr}(\hat{A}_k) = p$ for all $k=1,2,\cdots$. 
+
+% -------------------------------------------------------
+\section{Matrix Angular Central Gaussian Distribution}
+
+Chikuse (1990) \cite{chikuse_matrix_1990} extended the distribution to the matrix case, namely Stiefel and Grassmann manifolds
+\begin{gather*}
+	St(p,r) = \{X\in \mathbb{R}^{p\times r} ~\vert~ X^\top X = I_p\}\\
+	Gr(p,r) = \{\text{Span}(X) ~\vert~ X \in \mathbb{R}^{p\times r},~\text{rank}(X)=r\}
+\end{gather*}
+which are sets of orthonormal $k$-frames and $k$-subspaces.  The Matrix Angular Central Gaussian (MACG) distribution $MACG_{p,r}(\Sigma)$ has a density
+\begin{equation*}
+	f_{MACG}(X\vert \Sigma) = |\Sigma|^{-r/2} |X^\top \Sigma^{-1} X|^{-p/2}
+\end{equation*}
+where $\Sigma$ is a symmetric positive-definite matrix. Note that the density is very similar to what we had before for vector-valued distribution. Likewise, it shares properties as before.
+\begin{Properties}
+	\item $f_{MACG}(X|\Sigma) = f_{MACG}(-X|\Sigma)$.
+	\item $f_{MACG}(X|\Sigma) = f_{MACG}(X|c\Sigma),~c>0$.
+	\item $f_{MACG}(X|\Sigma) = f_{MACG}(XR|\Sigma)$ for $R\in O(r)$.\\
+	This property enables to consider MACG as a distribution on Grassmann manifold, which are quotient by modulo orthogonal transformation.
+\end{Properties}
+
+\noindent\textbf{Sampling from MACG}
+
+In order to draw random samples from $MACG_{p,r}(\Sigma)$, we need the following steps, which are common in directional statistics with Stiefel/Grassmann manifolds \cite{mardia_directional_1999}. First, draw $r$ random vectors $x_1,\ldots,x_r \sim \mathcal{N}_p (0,\Sigma)$ and stack them as columns $X=[x_1|\cdots|x_r] \in \mathbb{R}^{p\times r}$. Then,
+\begin{equation*}
+	Y = X (X^\top X)^{-1/2} \sim MACG_{p,r}(\Sigma)
+\end{equation*}
+where the negative square root for a symmetric positive-definite matrix can be obtained from eigen-decomposition,
+\begin{equation*}
+	\Omega = UDU^\top \rightarrow \Omega^{-1/2} = UD^{-1/2} U^\top,~ \left[D^{-1/2}\right]_{ij} = \frac{1}{\sqrt{d_ij}} \textrm{ when } i = j \textrm{ and $0$ otherwise}.
+\end{equation*}
+
+\noindent\textbf{Maximum Likelihood Estimation}
+
+Similarly, given random samples $X_1,X_2,\ldots,X_n \sim MACG_{p,r}(\Sigma)$, we can obtain a two-step iterative scheme to estimate the parameter $\Sigma$,
+\begin{mdframed}
+	\begin{equation}\label{eq:mle_matrix_naive}
+		\hat{\Sigma}_{k'} = \frac{p}{nr} \sum_{i=1}^n 
+		X_i (X_i^\top \Sigma^{-1} X_i)^{-1} X_i		 \quad \text{and}\quad \hat{\Sigma}_{k+1} =  \frac{p}{\text{tr}(\hat{\Sigma}_{k'})} \hat{\Sigma}_{k'}.
+	\end{equation}
+\end{mdframed}
+
+\noindent Derivation of formula \eqref{eq:mle_matrix_naive} follows the similar line as \eqref{eq:mle_sphere_naive}. We need another fact from matrix calculus that
+\begin{equation*}
+	\frac{\partial }{\partial \Sigma} \log\det(X^\top \Sigma^{-1} X) = - \Sigma^{-1} X (X^\top \Sigma^{-1} X)^{-1} X^\top \Sigma^{-1}.
+\end{equation*}
+First, log-likelihood is written as
+\begin{equation*}
+	\log L = \log \left( \prod_{i=1}^n f(X_i|\Sigma) \right) = -\frac{nr}{2}\log\det(\Sigma) - \frac{p}{2}\sum_{i=1}^n \log\det (X_i^\top \Sigma^{-1} X_i)
+\end{equation*}
+where the first-order condition gives
+\begin{gather*}
+	\frac{\partial \log L}{\partial \Sigma} = -\frac{nr}{2}\Sigma^{-1} + \frac{p}{2}\sum_{i=1}^n \left( \Sigma^{-1} X_i (X_i^\top \Sigma^{-1} X_i)^{-1} X_i^\top \Sigma^{-1} \right)\\
+	\frac{nr}{2} \Sigma^{-1} = \frac{p}{2}\sum_{i=1}^n \left( \Sigma^{-1} X_i (X_i^\top \Sigma^{-1} X_i)^{-1} X_i^\top \Sigma^{-1} \right) \\
+	\Sigma = \frac{p}{nr} \sum_{i=1}^n X_i (X_i^\top \Sigma^{-1} X_i)^{-1} X_i^\top
+\end{gather*}
+where the last equality comes from multiplying $\Sigma$ from left and right. Therefore, $\hat{\Sigma}$ is a solution of the matrix equation, leading to the formula \eqref{eq:mle_matrix_naive} with an additional projection step to keep $\text{tr}(\hat{\Sigma}_k) = p$ for all $k=1,2,\cdots$. Note that this matrix equation, up to my knowledge, has not known whether the mapping is contraction or not. 
+
+% -------------------------------------------------------
+\section{Conclusion}
+
+ACG and MACG distributions are simple yet rather little used in directional statistics. We hope that this brief note boosts probabilistic inference on corresponding manifolds at ease. An R package \href{http://kyoustat.com/Riemann/}{\textsf{Riemann}}, which is also available on CRAN, implements density evaluation, random sample generation, and maximum likelihood estimation of the scatter parameters $A$ and $\Sigma$ in the light of expecting handy utilization of the distributions we introduced.
+
+\bibliographystyle{plain}
+\bibliography{references}
+\end{document}

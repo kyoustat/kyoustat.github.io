@@ -1,0 +1,169 @@
+\documentclass[fontsize=12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+
+
+\setlength{\parindent}{3em}
+%\setlength{\parskip}{1em}
+\renewcommand{\baselinestretch}{1.5}
+
+% AMS Math
+
+\usepackage[a4paper, total={7in, 9in}]{geometry}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{mathtools}
+\usepackage{natbib}
+\usepackage{graphicx}
+\usepackage{url}
+\usepackage{hyperref}
+\usepackage{xcolor}
+\usepackage{varwidth}
+\usepackage{mdframed}
+\usepackage{algorithm,algpseudocode}% http://ctan.org/pkg/{algorithms,algorithmx}
+\algnewcommand{\Inputs}[1]{%
+	\State \textbf{Inputs:}
+	\Statex \hspace*{\algorithmicindent}\parbox[t]{.8\linewidth}{\raggedright #1}
+}
+\algnewcommand{\Initialize}[1]{%
+	\State \textbf{Initialize:}
+	\Statex \hspace*{\algorithmicindent}\parbox[t]{.8\linewidth}{\raggedright #1}
+}
+
+\newcommand{\calM}{\mathcal{M}}
+
+\title{A Not-So-Comprehensive List of \\
+	Markov chain Monte Carlo Algorithms}
+\author{
+	Kisung You\\
+	\texttt{kyoustat@gmail.com}
+}
+
+\date{\today}
+
+
+\begin{document}
+
+\maketitle
+\tableofcontents
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Introduction}
+
+Sample $\theta^{(1)},\theta^{(2)},\ldots,\theta^{(T)}$ from a target distribution $\pi(\theta)$ for $\theta \in \Omega$.
+
+\textbf{notation} : At last, we introduce the notations for clarification throughout this article. Let $\theta$ be a parameter/variable of our interest and superscript $^{(t)}$ is used whenever an object of our interest is specific to iteration $t$. For example, $\theta^{(t)}$ denotes the value of a parameter at iteration $t$. $\Omega$ stands for the domain on which the target distribution $\pi(\theta)$ is defined. $K(\cdot | \theta^{(t)})$ is a conditional density, also known as \textit{proposal} or  \textit{transition}/\textit{Markov} kernel, to generate next candidate at iteration $t$.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Basic Algorithms}\label{sec:basic}
+
+\subsection{Metropolis-Hastings Algorithm}
+
+Metropolis-Hastings (MH) algorithm \cite{metropolis_equation_1953, hastings_monte_1970} is a fundamental building block of MCMC computation that represents a family of \textit{acceptance-rejection} type algorithms. Metropolis algorithm can be considered as a special case of MH method where proposal density $K$ is symmetric. That means, when $K(x\vert y) = K(y\vert x)$, MH algorithm introduced in \ref{alg:metropolis-hastings} is reduced to Algorithm \ref{alg:metropolis} via cancellation of the term involving the ratio of proposal densities. 
+
+\begin{algorithm}
+	\caption{Metropolis Algorithm}\label{alg:metropolis}
+	\begin{algorithmic}[1]
+		\Initialize{ $\theta^{(0)} \in \Omega$}
+		\For{t = $1$ to $T$}
+		\State sample $\theta'$ from proposal $K(\cdot\vert\theta^{(t)})$
+		\State compute acceptance probability $\alpha^{(t)}$ such that
+		\begin{equation*}
+		\alpha^{(t)} = \min \left\lbrace
+		1, \frac{\pi(\theta')}{\pi(\theta^{(t)})}
+		\right\rbrace
+		\end{equation*}
+		\State sample $u^{(t)} \sim U[0,1]$ and decide by
+		\begin{equation*}
+		    \theta^{(t+1)} =
+			\begin{cases*}
+			\theta' & if $u^{(t)} \leq \alpha^{(t)}$ \\
+			\theta^{(t)} & otherwise
+			\end{cases*}
+		\end{equation*}
+		\EndFor
+	\end{algorithmic}
+\end{algorithm}
+\begin{algorithm}
+	\caption{Metropolis-Hastings Algorithm}\label{alg:metropolis-hastings}
+	\begin{algorithmic}[1]
+		\Initialize{ $\theta^{(0)} \in \Omega$}
+		\For{t = $1$ to $T$}
+		\State sample $\theta'$ from proposal $K(\cdot\vert\theta^{(t)})$
+		\State compute acceptance probability $\alpha^{(t)}$ such that
+		\begin{equation*}
+		\alpha^{(t)} = \min \left\lbrace
+		1, \frac{\pi(\theta')}{\pi(\theta^{(t)})}
+		\times 
+		\frac{K(\theta^{(t)}\vert \theta')}{K(\theta' \vert \theta^{(t)})}
+		\right\rbrace
+		\end{equation*}
+		\State sample $u^{(t)} \sim U[0,1]$ and decide by
+		\begin{equation*}
+		\theta^{(t+1)} =
+		\begin{cases*}
+		\theta' & if $u^{(t)} \leq \alpha^{(t)}$ \\
+		\theta^{(t)} & otherwise.
+		\end{cases*}
+		\end{equation*}
+		\EndFor
+	\end{algorithmic}
+\end{algorithm}
+
+\subsection{Gibbs Sampler}
+
+
+For multiavariate functions $f,g : \mathbb{R}^n \rightarrow \mathbb{R}$ with local maximum $x_0$, we have $\nabla f(x_0) = 0$ and $\nabla \nabla^\top f(x_0) = H_f (x_0) < 0$ for first and second-order conditions in multivariate calculus. Similar to univariate cases, we have following approximations,
+\begin{itemize}
+	\item \textbf{Version 3.}
+	\begin{equation}\label{eq:version3}
+	ver3
+	\end{equation}
+	\item \textbf{Version 4.}
+	\begin{equation}\label{eq:version4}
+	ver4
+	\end{equation}
+\end{itemize}
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Sampling from Intractable Distributions}\label{sec:intractable}
+
+
+\bibliographystyle{alpha}
+\bibliography{references.bib}
+\end{document}
+
+%\begin{algorithm}
+%	\caption{Metropolis Algorithm}\label{alg:metropolis}
+%	\begin{algorithmic}[1]
+%		\Inputs {$S={s_i}=\left(x_i,y_i\right)$}
+%		\Initialize{\strut$w_i^0 \gets 0$, $i=1,\ldots,n$ \\ $S_0 \gets S$}
+%		\For{t = 1 to T}
+%		\State $S_t \gets S_{t-1}$
+%		\For{$s_q \in S_t$}
+%		\State $N_q \gets$ k nearest neighbors 
+%		\State of $s_q$ using $D(s_q,s_i)$
+%		\State label($s_q$)$=argmax\sum_{s_i \in N_q}D(s_q,s_i)$;
+%		\If{label($s_q$)$\ne y_q$}
+%		\For{$s_i \in N_i$}
+%		\If{$y_i \ne y_q$}
+%		\State $w_{i}^{t} \gets w_{i}^{t} - \lambda/d(x_q,x_i)$;
+%		\Else
+%		\State $w_{i}^{t} \gets w_{i}^{t} + \lambda/d(x_q,x_i)$;
+%		\EndIf
+%		\EndFor
+%		\EndIf
+%		\EndFor
+%		\If{label($s_q$)$=y_q \forall_{s_q}$}
+%		\State break
+%		\EndIf
+%		\EndFor
+%	\end{algorithmic}
+%\end{algorithm}

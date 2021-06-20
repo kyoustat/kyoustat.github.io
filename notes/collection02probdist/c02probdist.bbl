@@ -1,0 +1,48 @@
+\begin{thebibliography}{xx}
+
+\harvarditem{Bhattacharyya}{1946}{bhattacharyya_measure_1946}
+Bhattacharyya, A.  \harvardyearleft 1946\harvardyearright .
+\newblock On a measure of divergence between two multinomial populations, {\em
+  Sankhy\=a: The Indian Journal of Statistics (1933-1960)} {\bf
+  7}(4):~401--406.
+
+\harvarditem{Hellinger}{1909}{hellinger_neue_1909-1}
+Hellinger, E.  \harvardyearleft 1909\harvardyearright .
+\newblock Neue {{Begr\"undung}} der {{Theorie}} quadratischer {{Formen}} von
+  unendlichvielen {{Ver\"anderlichen}}., {\em Journal f\"ur die reine und
+  angewandte Mathematik} {\bf 1909}(136):~210--271.
+
+\harvarditem{Jeffreys}{1946}{jeffreys_invariant_1946-1}
+Jeffreys, H.  \harvardyearleft 1946\harvardyearright .
+\newblock An invariant form for the prior probability in estimation problems,
+  {\em Proceedings of the Royal Society of London. Series A. Mathematical and
+  Physical Sciences} {\bf 186}(1007):~453--461.
+
+\harvarditem[Kampa et~al.]{Kampa, Hasanbelliu \harvardand\
+  Principe}{2011}{kampa_closed-form_2011-1}
+Kampa, K., Hasanbelliu, E. \harvardand\ Principe, J.~C.  \harvardyearleft
+  2011\harvardyearright .
+\newblock Closed-form cauchy-schwarz {{PDF}} divergence for mixture of
+  {{Gaussians}}, {\em The 2011 {{International Joint Conference}} on {{Neural
+  Networks}}}, {IEEE}, {San Jose, CA, USA}, pp.~2578--2585.
+
+\harvarditem{Kullback \harvardand\ Leibler}{1951}{kullback_information_1951-1}
+Kullback, S. \harvardand\ Leibler, R.~A.  \harvardyearleft
+  1951\harvardyearright .
+\newblock On {{Information}} and {{Sufficiency}}, {\em The Annals of
+  Mathematical Statistics} {\bf 22}(1):~79--86.
+
+\harvarditem{Petersen \harvardand\ Pedersen}{2012}{petersen_matrix_2012}
+Petersen, K.~B. \harvardand\ Pedersen, M.~S.  \harvardyearleft
+  2012\harvardyearright .
+\newblock {\em The {{Matrix Cookbook}}}, {Technical University of Denmark}.
+
+\harvarditem{R{\'e}nyi}{1961}{renyi_measures_1961}
+R{\'e}nyi, A.  \harvardyearleft 1961\harvardyearright .
+\newblock On {{Measures}} of {{Entropy}} and {{Information}}, {\em Proceedings
+  of the {{Fourth Berkeley Symposium}} on {{Mathematical Statistics}} and
+  {{Probability}}, {{Volume}} 1: {{Contributions}} to the {{Theory}} of
+  {{Statistics}}}, {University of California Press}, {Berkeley, Calif.},
+  pp.~547--561.
+
+\end{thebibliography}

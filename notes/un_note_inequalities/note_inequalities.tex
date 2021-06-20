@@ -1,0 +1,126 @@
+\documentclass[fontsize=12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+
+\setlength{\parindent}{3em}
+%\setlength{\parskip}{1em}
+\renewcommand{\baselinestretch}{1.5}
+
+% AMS Math
+
+\usepackage[a4paper, total={7in, 9in}]{geometry}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{natbib}
+\usepackage{graphicx}
+\usepackage{url}
+\usepackage{hyperref}
+\usepackage{xcolor}
+\usepackage{varwidth}
+\usepackage{mdframed}
+
+
+\newcommand{\calM}{\mathcal{M}}
+
+\title{Inequalities}
+\author{
+	Kisung You\\
+	\texttt{kyoustat@gmail.com}
+}
+
+\date{\today}
+
+
+
+\begin{document}
+
+\maketitle
+
+\section{Introduction}
+
+Professor Anirban 
+
+\href{https://imstat.org/2013/05/16/anirbans-angle-top-inequalities-for-a-phd-student/}{IMS bulletin}
+
+Point set refers to a collection of points or observations. When we have multiple of such objects in a common ambient space, including $\mathbb{R}^d$, it is often convenient two represent each point set as a mixture of well-known probability distributions. This enables us to consider point sets as measures so that the analysis becomes operations on the space of measures. 
+
+In this note, we focus on a mixture of Gaussians, also known as Gaussiam mixture model (GMM), and a measure of distance in the sense of $L_2 (\mathbb{R}^d)$ since it gives us explicit formula to compare two GMM-modeled measures $P$ and $Q$. Existence of explicit expression makes it a fascinating option compared to other measures which may depend on Monte Carlo integration. 
+
+
+\section{Problem Statement}
+Suppose we have two mixtures of Gaussians
+\begin{equation*}
+P(x)= \sum_{n=1}^N \alpha_n N(x|\mu_n, \Sigma_n) \quad \text{and} \quad
+Q(x) = \sum_{m=1}^M \beta_m N(x|\eta_m, \Lambda_m)
+\end{equation*}
+where $\alpha_n$ and $\beta_m$ are nonnegative (actually, positive) coefficients that sum to 1 respectively, i.e., $\sum_{n=1}^N \alpha_n = 1$ and $\sum_{m=1}^M \beta_m = 1$. $N(\cdot | \mu, \Sigma)$ and $N(\cdot|\eta, \Lambda)$ are Gaussian distributions in $\mathbb{R}^d$ with mean vectors $\mu, \eta$ and covariance matrices $\Sigma, \Lambda$ respectively. As everyone reading this note is probably well aware, the density function for $N(x|\mu,\Sigma)$ is in form of 
+\begin{equation*}
+f (x) = \frac{1}{| \Sigma |^{1/2} (2\pi)^{d/2}} 
+\exp \left(
+-\frac{1}{2} (x-\mu)^\top \Sigma^{-1} (x-\mu)
+\right)
+\end{equation*}
+with $|\Sigma|$ being determinant of square covariance matrix $\Sigma$.
+
+
+Two distributions are endowed with densities $p(x)$ and $q(x)$ for $P\text{ and }Q$ thanks to the above parametric forms and they are smooth functions over $\mathbb{R}^d$. This enables to define $L_2$ distance between two distributions,
+\begin{equation}
+L_2 (P,Q) = 
+\left\lbrace
+\int_{\mathbb{R}^d} (p(x)-q(x))^2 dx
+\right\rbrace^{1/2}. 
+\end{equation}
+For notational simplicity, we will denote $p_n (x)$ and $q_m (x)$ for densities of $P_n$ and $Q_m$ respectively. 
+
+\section{Derivation}
+
+We want to compute $L_2$ distance between two distributions $P$ and $Q$. This can be written as
+\begin{align*}
+L_2^2(P,Q) &= \int_{\mathbb{{R}^d}} (p(x)-q(x))^2 dx \\
+&= \int \left(
+\sum_{n=1}^N \alpha_n p_n(x) - \sum_{m=1}^M \beta_m q_m (x) \right)^2 dx \\
+&= 
+\sum_{n,n'} \alpha_n \alpha_{n'} \int p_n (x) p_{n'}(x) dx +
+\sum_{m,m'} \beta_m \beta_{m'} \int q_m (x) q_{m'} (x) dx \\
+&\quad -2 \sum_{n,m} \alpha_n \beta_m \int p_n (x) q_m (x) dx
+\end{align*}
+which requires to evaluate integral for a product of two Gaussian densities, 
+\begin{equation*}
+\int p_n (x) q_m (x). \tag{*}
+\end{equation*}
+From the formula to be introduced in the next section, we have following equalities,
+\begin{align*}
+A_{n,n'} &= \int p_n (x) p_{n'} (x) dx = N(\mu_n | \mu_{n'}, \Sigma_n + \Sigma_{n'}) \\
+B_{m,m'} &= \int q_m (x) q_{m'} (x) dx = N(\eta_m | \eta_{m'}, \Lambda_m + \Lambda_{m'}) \\
+C_{n,m} &=\int p_n (x) q_m (x) dx = N(\mu_n | \eta_m, \Sigma_n + \Lambda_m).
+\end{align*}
+Therefore, 
+\begin{equation*}
+L_2 (P,Q) = \left\lbrace
+\sum_{n,n'} \alpha_n \alpha_{n'} A_{n,n'} + 
+\sum_{m,m'} \beta_m \beta_{m'} B_{m,m'} \\
+- 2 \sum_{n,m} \alpha_n \beta_m C_{n,m}
+\right\rbrace^{1/2}
+\end{equation*}
+
+\section*{Fact (*)}
+
+According to Section 8.1.8 of Matrix Cookbook \citep{cookbook}, product of two gaussian densities is in form of following,
+\begin{equation*}
+N(x|m_1,\Sigma_1) \cdot N(x|m_2, \Sigma_2) = c_c \cdot N(x|m_c, \Sigma_c)
+\end{equation*}
+where
+\begin{align*}
+c_c &= N(m_1 | m_2, (\Sigma_1+\Sigma_2)) \\ 
+m_c &= (\Sigma_1^{-1} + \Sigma_2^{-1})^{-1} (\Sigma_1^{-1} m_1 + \Sigma_2^{-1} m_2) \\
+\Sigma_c &= (\Sigma_1^{-1} + \Sigma_2^{-1})^{-1}.
+\end{align*}
+From the fact that integral of density function is 1, we have
+\begin{equation*}
+\int N(x|m_1, \Sigma_1) \cdot N(x|m_2,\Sigma_2) dx = c_c .
+\end{equation*}
+
+\bibliographystyle{plain}
+\bibliography{references}
+\end{document}

@@ -1,0 +1,66 @@
+\documentclass[oneside]{amsbook}
+\usepackage{amsthm, amsmath, amssymb}
+\usepackage{geometry, setspace, graphicx, enumerate}
+\usepackage{listings}
+\onehalfspacing                 
+
+\usepackage[usenames, dvipsnames]{color}
+\definecolor{graphblue}{RGB}{52, 138, 189}
+\definecolor{graphpurple}{RGB}{122, 104, 166}
+
+\theoremstyle{plain}% default 
+\newtheorem{thm}{Theorem}[chapter] 
+\newtheorem{lem}[thm]{Lemma} 
+\newtheorem{prop}[thm]{Proposition} 
+\newtheorem*{cor}{Corollary} 
+
+\theoremstyle{definition}% No italic
+\newtheorem{defn}[thm]{Definition}
+\newtheorem{conj}[thm]{Conjecture}
+\newtheorem{exmp}[thm]{Example}
+\newtheorem{exer}[thm]{Ex.} 
+
+\theoremstyle{remark} 
+\newtheorem*{rem}{Remark} 
+\newtheorem*{note}{Note} 
+\newtheorem{case}{Case} 
+
+\DeclareMathOperator*{\argmax}{arg\,max}
+\DeclareMathOperator*{\argmin}{arg\,min}
+
+
+\usepackage{hyperref}
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd{\@maketitle}{\newpage}{}{}{} 
+\makeatother
+
+\title{Solution Manual to\\
+	\textit{A Course in Mathematical Statistics}\\
+	\textit{and Large Sample Theory}}
+
+\author{Kisung You\\{\Large \texttt{kyou@nd.edu}}}
+
+
+
+
+
+\begin{document}
+\maketitle
+
+\tableofcontents
+
+\setcounter{chapter}{0}
+\include{./chapters/chapter1}
+\include{./chapters/chapter2}
+\include{./chapters/chapter3}
+\include{./chapters/chapter4}
+\include{./chapters/chapter5}
+\include{./chapters/chapter6}
+%\include{ESL-Chap3Solutions}
+%\include{ESL-Chap4Solutions}
+%\include{ESL-Chap5Solutions}
+
+%\setcounter{chapter}{12}
+%\include{ESL-Chap12Solutions}
+\end{document}

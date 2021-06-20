@@ -1,0 +1,163 @@
+\documentclass[fontsize=12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+
+\setlength{\parindent}{3em}
+%\setlength{\parskip}{1em}
+\renewcommand{\baselinestretch}{1.5}
+
+% AMS Math
+
+\usepackage[a4paper, total={7in, 9in}]{geometry}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{natbib}
+\usepackage{graphicx}
+\usepackage{url}
+\usepackage{hyperref}
+\usepackage{xcolor}
+\usepackage{varwidth}
+\usepackage{mdframed}
+
+\newcommand{\calM}{\mathcal{M}}
+
+\title{Laplace's Method to Approximate Integrals}
+\author{
+	Kisung You\\
+	\texttt{kyoustat@gmail.com}
+}
+
+\date{\today}
+
+\begin{document}
+
+\maketitle
+%\tableofcontents
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Introduction}
+
+Laplace's method \cite{laplace} is an approximation technique for integrals of the form 
+\begin{equation}\label{eq:uni}
+\int_{a}^{b} e^{N f(x)} dx
+\end{equation}
+where $f(x)$ is a smooth (or at least twice-differentiable) function. This approximation scheme is one of the oldest yet frequently appearing in the context of statistics. In this note, we introduce it's derivation, variants, multivariate extension in a bit of details. We also elaborate several examples from Stirling's formula to Bayesian inference. 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Formula}\label{sec:formula}
+Say we have univariate smooth functions \footnote{In fact, twice differentiability is only required.} $f,g : \mathbb{R} \rightarrow \mathbb{R}$ and assume $f(x)$ attains local maximum at $x_0$. That means, $f'(x_0) = 0$ and $f''(x_0) < 0$. Since the domain of integral is an interval $[a,b]$, we assume $x_0 \neq a \text{ and } x_0 \neq b$.  Then using Taylor's expansion, we have Laplace's approximation in two versions
+
+\begin{mdframed}
+\textbf{Version 1.}
+\begin{equation}\label{eq:version1}
+\int_{a}^{b} e^{N f(x)} dx \approx e^{N f(x_0)} \sqrt{\frac{2\pi}{N |f''(x_0)|}}
+\end{equation}
+\end{mdframed}
+\vspace{0.1cm}
+\begin{mdframed}
+	\textbf{Version 2.}
+	\begin{equation}\label{eq:version2}
+	\int_{a}^{b} e^{N f(x)} g(x) dx \approx e^{N f(x_0)} g(x_0) \sqrt{\frac{2\pi}{N |f''(x_0)|}}
+	\end{equation}
+\end{mdframed}
+
+
+
+For multiavariate functions $f,g : \mathbb{R}^n \rightarrow \mathbb{R}$ with local maximum $x_0$, we have $\nabla f(x_0) = 0$ and $\nabla \nabla^\top f(x_0) = H_f (x_0) < 0$ for first and second-order conditions in multivariate calculus. Similar to univariate cases, we have following approximations,
+\begin{itemize}
+	\item \textbf{Version 3.}
+	\begin{equation}\label{eq:version3}
+	ver3
+	\end{equation}
+	\item \textbf{Version 4.}
+	\begin{equation}\label{eq:version4}
+	ver4
+	\end{equation}
+\end{itemize}
+Derivation of aforementioned approximation formula will be covered in Section \ref{sec:derivation}. 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Examples}\label{sec:example}
+\noindent{\textbf{1. Stirling's formula}}
+
+For large $M \in \mathbb{Z}_+$, $M! = M\cdot(M-1)\cdots 2 \cdot 1$ can be approximated by $\sqrt{2\pi M} M^M e^{-M}$ using Gamma function representation. It is a well-known fact that $M! = \Gamma(M+1) = \int_{0}^\infty e^{-x} x^M dx$ in that the integral can be approximated by re-writing the integrand and applying Laplace's method.
+\begin{align}
+M! &= \int_0^\infty e^{-x} x^M dx = \int_0^\infty e^{-x} e^{M\log x} \nonumber \\
+&= \int_0^\infty \exp \left( M\log x - x \right) dx \label{eq:stirlinga}.
+\end{align}
+
+From Equation \eqref{eq:version1}, set $N=1$ and $f(x) = M \log x - x$ then we have 
+\begin{equation*}
+f'(x) = \frac{M}{x} - 1\quad \textrm{ and } \quad f''(x) = -\frac{M}{x^2}
+\end{equation*}
+in that $f$ attains local extremum at $x_0 = M$ and it turns out to be a maximum since $f''(x_0) = -1/M < 0$. Therefore, continuing from Equation \eqref{eq:stirlinga},
+\begin{align*}
+M!&= \int_0^\infty \exp (M \log x - x) dx \\
+&= e^{f''(x_0)} \sqrt{\frac{2\pi}{|f''(x_0)|}} = e^{M \log M - M}  \sqrt{\frac{2\pi}{\frac{1}{M}}}\\
+&= \sqrt{2\pi M} M^M e^{-M}.
+\end{align*}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Derivation}\label{sec:derivation}
+
+\vspace{0.2cm}
+\begin{mdframed}
+\textbf{Version 1.}
+\begin{equation*}
+\int_{a}^{b} e^{N f(x)} dx \approx e^{N f(x_0)} \sqrt{\frac{2\pi}{N |f''(x_0)|}}
+\end{equation*}
+\end{mdframed}
+
+
+First, compute Taylor's expanson for $f(x)$ at $x=x_0$
+\begin{align*}
+f(x) &= f(x_0) + f'(x_0) (x-x_0) + f''(x_0) \frac{(x-x_0)^2}{2} + \epsilon \\
+&\approx f(x_0) + f''(x_0) \frac{(x-x_0)^2}{2} \quad \textrm{since }f'(x_0)=0 \text{ in that }\\
+\int_a^b e^{N f(x)} dx &\approx \int_{a}^b \exp(N f(x_0)) \exp \left(- \frac{N |f''(x_0)| (x-x_0)^2}{2}  \right) dx \\
+&\approx e^{N f(x_0)} \int_{a}^b \exp \left(- \frac{N |f''(x_0)| (x-x_0)^2}{2}  \right) dx \\
+&\approx e^{N f(x_0)} \int_\infty^\infty \exp \left(- \frac{N |f''(x_0)| (x-x_0)^2}{2}  \right) dx \\
+\intertext{where change of domain to $(-\infty,\infty)$ is justified by fast decay of the integrand outside of $[a,b]$} 
+&= e^{N f(x_0)} \sqrt{\frac{2\pi}{N |f''(x_0)|}} \sqrt{\frac{N |f''(x_0)|}{2\pi}} \int_\mathbb{R}  \exp \left(- \frac{N |f''(x_0)| (x-x_0)^2}{2}  \right) dx \\
+&= e^{N f(x_0)} \sqrt{\frac{2\pi}{N |f''(x_0)|}}
+\end{align*}
+where the last equation is from the fact that re-arranging the terms in integrand leads to somehow similar form of normal distribution by setting $\sigma^2 = 1/ \{N|f''(x_0)|\}$ so that by the following
+\begin{equation*}
+\frac{1}{\sqrt{2\pi \sigma^2}} \int_\mathbb{R} \exp\left(-\frac{(x-x_0)^2}{2\sigma^2}\right) = 1
+\end{equation*}
+do we have the simplified form as above. 
+
+\vspace{0.2cm}
+\begin{mdframed}
+\textbf{Version 2.}
+	\begin{equation*}
+	\int_{a}^{b} e^{N f(x)} g(x) dx \approx e^{N f(x_0)} g(x_0) \sqrt{\frac{2\pi}{N |f''(x_0)|}}
+	\end{equation*}
+\end{mdframed}
+
+Derivation for this version is very similar to that of the above by adding one more step of Taylor's expansion for $g(x)$ up to first order, i.e., $g(x) = g(x_0) + g'(x)(x-x_0)$.
+\begin{align}
+\int_a^b e^{N f(x)} g(x) dx & \approx e^{N f(x_0)} \int_{a}^b g(x) \exp \left(- \frac{N |f''(x_0)| (x-x_0)^2}{2}  \right) dx \nonumber \\
+& \approx e^{N f(x_0)} \int_{a}^b \left\lbrace g(x_0) + g'(x_0)(x-x_0) \right\rbrace \exp \left(- \frac{N |f''(x_0)| (x-x_0)^2}{2}  \right) dx \nonumber \\
+&\approx e^{N f(x_0)} g(x_0) \int_\mathbb{R} \exp \left(- \frac{N |f''(x_0)| (x-x_0)^2}{2}  \right) dx \nonumber \\
+&~ + e^{N f(x_0)} g'(x_0) \int_\mathbb{R} (x-x_0) \exp \left(- \frac{N |f''(x_0)| (x-x_0)^2}{2}  \right) dx \label{eq:version2_zero} \\
+&\approx e^{N f(x_0)} g(x_0) \sqrt{\frac{2\pi}{N |f''(x_0)|}} + 0 \nonumber \\
+&= e^{N f(x_0)} g(x_0) \sqrt{\frac{2\pi}{N |f''(x_0)|}}. \nonumber
+\end{align}
+Equation \eqref{eq:version2_zero} vanishes and we can check this by replacing $x-x_0$ with $y$, which leads to the following,
+\begin{align*}
+\int_{\mathbb{R}} y \exp \left( -\frac{N|f''(x_0)| y^2}{2} \right) dy
+&= \int_{\mathbb{R}} -\frac{1}{N |f''(x_0)|}\cdot - N |f''(x_0)| y \exp \left( -\frac{N|f''(x_0)| y^2}{2} \right) dy \\ 
+&= -\frac{1}{N |f''(x_0)|} \int_{\mathbb{R}} - N |f''(x_0)| y \exp \left( -\frac{N|f''(x_0)| y^2}{2} \right) dy \\
+&= -\frac{1}{N |f''(x_0)|} \cdot  \exp \left( -\frac{N|f''(x_0)| y^2}{2} \right) \bigg\rvert_{-\infty}^{\infty} \\
+&= -\frac{1}{N |f''(x_0)|} \cdot (0 - 0) = 0. 
+\end{align*}
+
+\section{online notes}
+\href{https://people.eecs.berkeley.edu/~jordan/courses/260-spring10/lectures/lecture16.pdf}{Jordan's note}\\
+\href{http://www.stats.ox.ac.uk/~steffen/teaching/bs2HT9/laplace.pdf}{Lecture Slide for Multivariate Case}
+
+\bibliographystyle{plain}
+\bibliography{references}
+\end{document}
+

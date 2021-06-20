@@ -1,0 +1,25 @@
+\begin{thebibliography}{1}
+
+\bibitem{chikuse_matrix_1990}
+Yasuko Chikuse.
+\newblock The matrix angular central {Gaussian} distribution.
+\newblock {\em Journal of Multivariate Analysis}, 33(2):265--274, May 1990.
+
+\bibitem{mardia_directional_1999}
+Kanti~V. Mardia and Peter~E. Jupp, editors.
+\newblock {\em Directional {Statistics}}.
+\newblock Wiley {Series} in {Probability} and {Statistics}. John Wiley \& Sons,
+  Inc., Hoboken, NJ, USA, January 1999.
+
+\bibitem{cookbook}
+K.~B. Petersen and M.~S. Pedersen.
+\newblock The matrix cookbook, nov 2012.
+\newblock Version 20121115.
+
+\bibitem{tyler_statistical_1987}
+David~E. Tyler.
+\newblock Statistical analysis for the angular central {Gaussian} distribution
+  on the sphere.
+\newblock {\em Biometrika}, 74(3):579--589, 1987.
+
+\end{thebibliography}

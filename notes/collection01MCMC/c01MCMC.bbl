@@ -1,0 +1,16 @@
+\newcommand{\etalchar}[1]{$^{#1}$}
+\begin{thebibliography}{MRR{\etalchar{+}}53}
+
+\bibitem[Has70]{hastings_monte_1970}
+W.~K. Hastings.
+\newblock Monte {Carlo} {Sampling} {Methods} {Using} {Markov} {Chains} and
+  {Their} {Applications}.
+\newblock {\em Biometrika}, 57(1):97, April 1970.
+
+\bibitem[MRR{\etalchar{+}}53]{metropolis_equation_1953}
+Nicholas Metropolis, Arianna~W. Rosenbluth, Marshall~N. Rosenbluth, Augusta~H.
+  Teller, and Edward Teller.
+\newblock Equation of {State} {Calculations} by {Fast} {Computing} {Machines}.
+\newblock {\em The Journal of Chemical Physics}, 21(6):1087--1092, June 1953.
+
+\end{thebibliography}

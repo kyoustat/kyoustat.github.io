@@ -1,0 +1,62 @@
+\documentclass[fontsize=12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+
+\setlength{\parindent}{3em}
+%\setlength{\parskip}{1em}
+\renewcommand{\baselinestretch}{1.5}
+
+% AMS Math
+
+\usepackage[a4paper, total={7in, 9in}]{geometry}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{natbib}
+\usepackage{graphicx}
+\usepackage{url}
+\usepackage{hyperref}
+\usepackage{xcolor}
+\usepackage{varwidth}
+\usepackage{mdframed}
+
+\newcommand{\calM}{\mathcal{M}}
+
+\title{Monte Carlo computation of $L_p$ distance between two densities on $\mathbb{S}^d$}
+\author{
+	Kisung You\\
+	\texttt{kisungyou@outlook.com}
+}
+
+\date{\today}
+
+
+
+\begin{document}
+
+\maketitle
+
+\subsection*{Problem Statement}
+
+Let $\mathbb{S}^d = \lbrace \vec{x} \in \mathbb{R}^{d+1} ~\vert~  x_1^2 + x_2^2 + \cdots + x_{d+1}^2 = 1 \rbrace$ be a unit-norm hypersphere and $\mathcal{P}(\mathbb{S}^d)$ denote a space of densities on $\mathbb{S}^d$. For two densities $f,g \in \mathcal{P}(\mathbb{S}^d)$, we often need the concept of dissimilarity between the two. Unfortunately, even for most well-known distributions on sphere, analytic formula for discrepancy is rarely available, leading to require numerical scheme. We focus on $L_p$ distance between two densities
+\begin{equation}
+L_p (f,g) = \left( \int_{\mathbb{S}^d} \lvert f(x) - g(x) \rvert^p dx \right)^{1/p} \label{eq:main_eq}
+\end{equation}
+and we combine Monte Carlo integration with importance sampling to approximate \eqref{eq:main_eq}.
+
+
+\vspace{1cm}
+\subsection*{Computation}
+For notational simplicity, we approximate $L_p (f,g)^p$ and use uniform density $u(x)$ as an importance proposal. Note that $u(x)$ is constant depending on the dimension of a sphere $d$ but we stick to $u(x)$ notation for consistency in the literature of Monte Carlo integration. Then, we have the following,
+
+\begin{align*}
+L_p (f,g)^p &= \int_{\mathbb{S}^d} \lvert f(x) - g(x) \rvert^p dx \\
+&= \int_{\mathbb{S}^d} \frac{\lvert f(x) - g(x) \rvert^p}{u(x)} u(x)  dx \\
+&= \mathbb{E}_{u(x)} \left[ \frac{\lvert f(x) - g(x) \rvert^p}{u(x)} \right] \\
+\intertext{and as $N\rightarrow \infty$, the above can be approximated by}
+&\approx  \frac{1}{N} \sum_{n=1}^N  \frac{\lvert f(x_n) - g(x_n) \rvert^p}{u(x_n)} \quad \textrm{for }~   x_n \stackrel{iid}{\sim}  u(x).
+\end{align*}
+
+%\bibliographystyle{plain}
+%\bibliography{references}
+\end{document}

@@ -1,0 +1,59 @@
+\documentclass[fontsize=12pt]{article}
+\usepackage[utf8]{inputenc}
+
+% AMS Math
+
+
+\usepackage[a4paper, total={6in, 8in}]{geometry}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{natbib}
+\usepackage{graphicx}
+\usepackage{url}
+\usepackage{hyperref}
+\usepackage{xcolor}
+
+\newcommand{\calM}{\mathcal{M}}
+
+\title{Asymptotic Properties of Chi-Squared Distribution}
+\author{
+	Kisung You\\
+	\texttt{kyoustat@gmail.com}
+}
+
+\date{\today}
+
+
+
+\begin{document}
+
+\maketitle
+
+For $X \sim \chi^2 (k)$, we have
+\begin{itemize}
+	\item \textbf{CLT}
+	\begin{equation*}
+	\frac{X - k}{\sqrt{2k}} \sim N(0,1)
+	\end{equation*}
+	\item \textbf{Fisher (1922)}
+	\begin{equation*}
+	\sqrt{2X} \sim N(\sqrt{2k-1}, 1)
+	\end{equation*}
+	\item \textbf{Wilson-Hilferty (1931)}
+	\begin{equation*}
+	\left({\frac{X}{k}}\right)^{1/3} \sim N(1-\frac{2}{9k}, \frac{2}{9k})
+	\end{equation*}
+\end{itemize}
+
+References are 
+\begin{itemize}
+	\item \href{https://www.ncbi.nlm.nih.gov/pmc/articles/PMC1076144/pdf/pnas01728-0064.pdf}{Wilson and Hilferty}
+	\item \href{http://inspirehep.net/record/1389910/files/suf9601.pdf}{Handbook of Distributions}
+	\item \href{https://stats.stackexchange.com/questions/258300/approximation-of-chi-squared-distribution-quantiles-by-means-of-the-standard-nor}{Proof for Fisher}
+\end{itemize}
+
+\bibliographystyle{plain}
+\bibliography{references}
+\end{document}
+

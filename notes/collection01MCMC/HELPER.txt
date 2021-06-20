@@ -1,0 +1,7 @@
+Good Reference List
+
+* online note
+	https://m-clark.github.io/docs/ld_mcmc/#independence-metropolis
+
+* journal paper 
+	[2018.Robert] Accelerating MCMC algorithms
