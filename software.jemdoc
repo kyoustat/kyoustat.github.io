@@ -8,7 +8,7 @@ I develop several packages in [https://www.r-project.org/ R]. Packages with addi
 - [https://CRAN.R-project.org/package=RiemBase *RiemBase*]\n
 Functions and C++ Header Files for Computation on Manifolds
 
-- [https://CRAN.R-project.org/package=Riemann *Riemann*] ([https://kyoustat.com/Riemann/ +website+])\n
+- [https://CRAN.R-project.org/package=Riemann *Riemann*] ([https://kisungyou.com/Riemann/ +website+])\n
 Learning with Data on Riemannian Manifolds
 
 - [https://CRAN.R-project.org/package=TDAkit *TDAkit*]\n
@@ -29,16 +29,16 @@ Statistical Tools for Covariance Analysis
 - [https://CRAN.R-project.org/package=filling *filling*]\n
 Matrix Completion, Imputation, and Inpainting Methods
 
-- [https://CRAN.R-project.org/package=Rdimtools *Rdimtools*] ([https://kyoustat.com/Rdimtools/ +website+])\n
+- [https://CRAN.R-project.org/package=Rdimtools *Rdimtools*] ([https://kisungyou.com/Rdimtools/ +website+])\n
 Dimension Reduction and Estimation Methods
 
 - [https://CRAN.R-project.org/package=SBmedian *SBmedian*]\n
 Scalable Bayes with Median of Subset Posteriors
 
-- [https://CRAN.R-project.org/package=SHT *SHT*]\n
+- [https://CRAN.R-project.org/package=SHT *SHT*] ([https://kisungyou.com/SHT/ +website+])\n
 Statistical Hypothesis Testing Toolbox
 
-- [https://CRAN.R-project.org/package=T4cluster *T4cluster*] ([https://kyoustat.com/T4cluster/ +website+])\n
+- [https://CRAN.R-project.org/package=T4cluster *T4cluster*] ([https://kisungyou.com/T4cluster/ +website+])\n
 Tools for Cluster Analysis
 
 == Optimization and Applied Mathematics
