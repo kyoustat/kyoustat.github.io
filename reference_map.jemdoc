@@ -1,0 +1,25 @@
+# jemdoc: menu{MENU}{index.html}
+= [https://kisungyou.github.io/ Kisung You]
+{{<script>document.title = "Kisung You"</script>}}
+
+~~~
+{}{img_left}{figure/fig_vanity.jpeg}{Mario}{480}{360}{}
+~~~
+# {{<span lang="zh-Hant" xml:lang="zh-Hant">}}虛空踏步{{</span>}}, \n or Mario.
+
+== 
+
+Hello, world!\n
+My name is Kisung You({{<span lang="ko" xml:lang="ko">}}유기성{{</span>}}\M{{<span lang="zh-Hant" xml:lang="zh-Hant">}}柳基成{{</span>}}.{{<a href="http://korea.net"><img src="figure/fig_flag.png" height="19" alt="ROK" /></a>}}) a doctoral candidate in statistics under supervision of Prof. [https://www3.nd.edu/~llin4/ Lizhen Lin] (University of Notre Dame) and Prof. Ick Hoon Jin (Yonsei University). 
+
+== Contact
+University of Notre Dame\n
+102G Crowley Hall,\n
+Notre Dame, IN 46556-5641\n
+Email: kisungyou@outlook.com\n
+
+~~~
+{}{raw}
+<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2978.891367031161!2d-86.24000124877126!3d41.70128078433753!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8816d2a0492d233b%3A0x7153b8effb16ae1c!2sCrowley%20Hall%20of%20Music%2C%20Notre%20Dame%2C%20IN%2046556!5e0!3m2!1sen!2sus!4v1568851701074!5m2!1sen!2sus" width="400" height="300" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
+
+~~~
